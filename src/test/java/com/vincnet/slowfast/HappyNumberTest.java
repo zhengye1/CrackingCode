@@ -11,24 +11,27 @@ public class HappyNumberTest {
     HappyNumber happyNumber = new HappyNumber();
 
     @Test
-    void testCase1(){
+    void testCase1() {
         assertTrue(happyNumber.isHappy(testCase[0]));
     }
 
     @Test
-    void testCase2(){
+    void testCase2() {
         assertFalse(happyNumber.isHappy(testCase[1]));
     }
+
     @Test
-    void testCase3(){
+    void testCase3() {
         assertTrue(happyNumber.isHappy(testCase[2]));
     }
+
     @Test
-    void testCase4(){
+    void testCase4() {
         assertFalse(happyNumber.isHappy(testCase[3]));
     }
+
     @Test
-    void testCase5(){
+    void testCase5() {
         assertTrue(happyNumber.isHappy(testCase[4]));
     }
 }

@@ -29,5 +29,33 @@ public class LinkedList<T> {
             insertNodeAtHead(newNode);
         }
     }
+
+    // returns the node at the specified position(index) of the linked list
+    public LinkedListNode getNode(LinkedListNode head, int pos){
+        LinkedListNode ptr = head;
+        if (pos != -1){
+            int p = 0;
+
+            while (p < pos){
+                ptr = ptr.next;
+                p += 1;
+            }
+
+            return ptr;
+        }
+        return ptr;
+    }
+
+    // returns the number of nodes in the linked list
+    public int getLength(LinkedListNode head)
+    {
+        LinkedListNode temp = head;
+        int count = 0;
+        while (temp != null) {
+            count++;
+            temp = temp.next;
+        }
+        return count;
+    }
 }
 

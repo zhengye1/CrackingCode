@@ -1,7 +1,7 @@
 package com.vincent.slowfast;
 
 /**
- * LeetCode 202 Easy
+ * LeetCode 202 Easy <br>
  * Give an integer <i>n</i>, replace the number with the sum of the square of each digit<br>
  * Repeat the process until: <br>
  * - the number is equal to 1, which means it is happy number <br>

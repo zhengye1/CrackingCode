@@ -12,9 +12,9 @@ import java.util.Map;
 public class TwoSum {
 
     /**
-     * Traditional solution, using hashmap to store it
-     * Time : O(n)
-     * Space: O(n)
+     * Traditional solution, using hashmap to store it <br>
+     * Time : O(n) <br>
+     * Space: O(n) <br>
      **/
     public int[] twoSumTraditional(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
@@ -32,7 +32,7 @@ public class TwoSum {
      * Two pointer solutions
      * @param nums number array
      * @param target the target want to hit
-     * @return <br>indices</br> if found the value, otherwise just empty
+     * @return <i>indices</i> if found the value, otherwise just empty
      */
     public int[] twoSum(int[] nums, int target) {
         int left = 0;
