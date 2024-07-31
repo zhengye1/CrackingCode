@@ -10,6 +10,12 @@ package com.vincent.slowfast;
  * - 1 &lt;= <i>n</i> &lt;= 2^31-1
  */
 public class HappyNumber {
+    /**
+     * Time Complexity: O(log n), happens when the number have the cycle and need at most O(log n) to compute the sum
+     * of the squares of digits
+     * @param n input number
+     * @return TRUE or FALSE to see if <i>n</i> is happy number
+     */
     public boolean isHappy(int n) {
         int slow = n;
         int fast = sumOfSquares(n);
