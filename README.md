@@ -1,0 +1,27 @@
+# Must understand for coding interview
+
+- Using `Two Pointer`, for example `two sum`, `valid palindrome` etc
+- Using `Slow and Fast pointer`, for example `checking the loop in linked list`
+- Using `Sliding window`
+- `Merge Interva`
+- `In-Place manipulation of Linked List`
+- `Two Heaps`
+- `K-way merge`
+- `Top k element`
+- `Modify binary search`
+- `Subsets`
+- `Greedy Technique`
+- `Backtracking`
+- `Dynamic Programming`
+- `Cyclic Sort`
+- `Topological Sort`
+- `Matrices`
+- `Stacks`
+- `Graphs`
+- `DFS, BFS`
+- `Trie`
+- `Hash Map`
+- `Knowing what to check`
+- `Union Find`
+- `Custom Data Structure`
+- `Bitwise Manipulation`
