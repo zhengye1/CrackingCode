@@ -34,7 +34,7 @@ public class MinimumWindowSequence {
                         }
                         start--; // move the start pointer to the left to find the minimum length
                     }
-                    start++;
+                    start++; // need to add it back because last loop the pointer on s1 move backward 1 more time
 
                     if (end - start + 1 < minLen) {
                         //update the length
