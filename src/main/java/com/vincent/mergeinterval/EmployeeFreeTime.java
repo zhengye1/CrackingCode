@@ -3,6 +3,7 @@ package com.vincent.mergeinterval;
 import com.vincent.util.Interval;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -17,7 +18,7 @@ import java.util.PriorityQueue;
 public class EmployeeFreeTime {
     public List<Interval> employeeFreeTime(List<List<Interval>> schedule) {
         List<Interval> result = new ArrayList<>();
-        PriorityQueue<int[]> heap = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        PriorityQueue<int[]> heap = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
         for (int i = 0; i < schedule.size(); i++) {
             List<Interval> employeeSchedule = schedule.get(i);
             Interval interval = employeeSchedule.getFirst();
