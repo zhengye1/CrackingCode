@@ -29,8 +29,4 @@ public class BestTimeBuySellStock {
         }
         return maxProfit;
     }
-
-    public static void main(String[] args) {
-        new BestTimeBuySellStock().maxProfit(new int[] {2, 1, 4});
-    }
 }

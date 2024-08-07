@@ -1,5 +1,5 @@
 package com.vincent.util;
-
+import java.util.*;
 public class LinkedList<T> {
     public LinkedListNode head;
 
@@ -24,6 +24,15 @@ public class LinkedList<T> {
     public void createLinkedList(int[] lst) {
         for (int i = lst.length - 1; i >= 0; i--) {
             LinkedListNode newNode = new LinkedListNode(lst[i]);
+            insertNodeAtHead(newNode);
+        }
+    }
+
+    // create_linked_list method will create the linked list using the
+    // given integer array with the help of InsertAthead method.
+    public void createLinkedList(List<Integer> lst) {
+        for (int i = lst.size() - 1; i >= 0; i--) {
+            LinkedListNode newNode = new LinkedListNode(lst.get(i));
             insertNodeAtHead(newNode);
         }
     }
@@ -54,6 +63,22 @@ public class LinkedList<T> {
             temp = temp.next;
         }
         return count;
+    }
+
+
+    public static void printListWithForwardArrow(LinkedListNode head)
+    {
+        LinkedListNode temp = head;
+
+        while (temp != null) {
+            System.out.print(temp.data); // print node value
+            temp = temp.next;
+            if (temp != null) {
+                System.out.print(" → ");
+            }
+        }
+        // if this is the last node, print null at the end
+        System.out.print(" → null ");
     }
 }
 
