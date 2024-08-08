@@ -14,16 +14,12 @@ public class BestTimeBuySellStock {
         int profit;
         while (sellWindow < priceLen) {
             profit = prices[sellWindow] - prices[buyWindow];
-            if (profit >= maxProfit) {
-                maxProfit = profit;
-            }
+            maxProfit = Math.max(profit, maxProfit);
 
             while (profit < 0) {
                 buyWindow++;
                 profit = prices[sellWindow] - prices[buyWindow];
-                if (profit >= maxProfit) {
-                    maxProfit = profit;
-                }
+                maxProfit = Math.max(profit, maxProfit);
             }
             sellWindow++;
         }

@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import java.util.Collections;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
+
 public class ThreeSumListTest {
     ThreeSumList solution = new ThreeSumList();
 
@@ -13,15 +15,7 @@ public class ThreeSumListTest {
         List<List<Integer>> result = solution.threeSum(new int[]{-1, 0, 1, 2, -1, -4});
         // create the expected list
         List<List<Integer>> expected = List.of(List.of(-1, -1, 2), List.of(-1, 0, 1));
-
-
-        assert (expected.size() == result.size());
-        List<Integer> list1 = expected.get(0);
-        List<Integer> list2 = expected.get(1);
-        for (List<Integer> iterator : result) {
-            Collections.sort(iterator);
-            assert (iterator.equals(list1) || iterator.equals(list2));
-        }
+        assertIterableEquals(expected, result);
     }
 
     @Test
