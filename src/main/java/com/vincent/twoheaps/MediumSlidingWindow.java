@@ -37,7 +37,7 @@ public class MediumSlidingWindow {
                 medians[i - k] = (double)maxHeap.peek(); // if k is odd, the median is the top of maxHeap
             } else {
                 // if k is even, the median is the average of top of maxHeap and minHeap
-                medians[i - k] = (double)((long)maxHeap.peek() + (long)minHeap.peek()) * 0.5;
+                medians[i - k] = (double)(maxHeap.peek() + minHeap.peek()) * 0.5;
             }
 
             if (i >= nums.length)
@@ -45,6 +45,7 @@ public class MediumSlidingWindow {
 
             // find the outgoing number
             int outNum = nums[i - k];
+            
             // find the incoming number;
             int inNum = nums[i];
             i++;

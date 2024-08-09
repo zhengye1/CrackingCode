@@ -5,7 +5,7 @@ import java.util.Deque;
 
 /**
  * LeetCode 239. Sliding Window Maximum - Hard <br>
- * Given an integer list <i>nums</i>, find all the maximum values in all the contiguous  subarrays of size <i>k</i>. <br>
+ * Given an integer list <i>nums</i>, find all the maximum values in all the contiguous subarrays of size <i>k</i>. <br>
  * Constraint: <br>
  * - 1 &lt;= <i>nums.length</i> &lt;= 10^5 <br>
  * - -10^4 &lt;= <i>nums[i] </i> &lt;= 10^4 <br>
