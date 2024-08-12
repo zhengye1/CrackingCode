@@ -18,8 +18,6 @@ public class ReorganizeStringTest {
     static String[] inputs = {"programming", "hello", "fofjjb", "abbacdde", "aba", "awesome", "aaab", "aab"};
     static String[] expected = {"rgmrgmpiano", "loelh", "fjofjb", "abdabdce", "aba", "eomewas", "", "aba"};
 
-
-    FindLongestSubstring findLongestSubstring = new FindLongestSubstring(); // that using the to test the result
     ReorganizeString reorganizeString = new ReorganizeString();
 
     static Stream<Arguments> generateTestCases() {

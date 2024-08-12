@@ -50,8 +50,7 @@ public class KClosestPointsToOrigin {
             int x = points[nextIndex][0];
             int y = points[nextIndex][1];
             double distance = euclideanDistanceToOrigin(x, y);
-            if (distance < (double)maxHeap.peek()[2]){
-                System.out.println("Top distance: " + maxHeap.peek()[1] + " calculate distance:" + distance);
+            if (distance < maxHeap.peek()[2]){
                 maxHeap.poll();
                 maxHeap.offer(new double[]{(double)x, (double)y, distance});
             }
@@ -65,11 +64,8 @@ public class KClosestPointsToOrigin {
         }
         return result;
     }
-    private double euclideanDistanceToOrigin(int x, int y){
+    public double euclideanDistanceToOrigin(int x, int y){
         return Math.sqrt(x * x + y * y);
     }
 
-    public static void main(String[] args){
-        new KClosestPointsToOrigin().kClosest(new int[][]{{3, 3}, {5, -1}, {-2, 4}}, 2);
-    }
 }

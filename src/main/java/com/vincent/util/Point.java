@@ -1,7 +1,9 @@
 package com.vincent.util;
 
 import java.util.Objects;
+import lombok.Data;
 
+@Data
 public class Point {
     int x;
     int y;
