@@ -2,6 +2,7 @@ package com.vincent.slidewindow;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * LeetCode 76 Hard
@@ -15,7 +16,7 @@ import java.util.Map;
  * 3. s and t consist of English letters. <br>
  */
 public class MinimumWindowSubstring {
-    // Current test case it will break the 287 test cases on leetcode
+    // Current test case it will break the 267 test cases on leetcode
     // Overall time complexity: O(m + n x m)
     // space O(1)
     public String minWindow(String s, String t) {
@@ -38,7 +39,7 @@ public class MinimumWindowSubstring {
                 wFreq.put(currentChar, wFreq.get(currentChar) + 1);
             }
             // need to match the frequency with t and s
-            if (tFreq.containsKey(currentChar) && wFreq.get(currentChar) == tFreq.get(currentChar)) {
+            if (tFreq.containsKey(currentChar) && Objects.equals(wFreq.get(currentChar), tFreq.get(currentChar))) {
                 currentReq++;
             }
 

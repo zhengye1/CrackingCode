@@ -39,7 +39,7 @@ public class SlidingWindowMaximum {
             currentWindow.add(i); // add the index of the current value to the queue
             output[i - w + 1] = nums[currentWindow.getFirst()];
         }
-            return output;
+        return output;
     }
 
     private void cleanUp(int currentIndex, Deque<Integer> currentWindow, int[] nums) {
