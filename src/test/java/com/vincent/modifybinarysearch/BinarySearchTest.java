@@ -31,14 +31,14 @@ public class BinarySearchTest {
     }
 
     BinarySearch binarySearch = new BinarySearch();
-    @ParameterizedTest(name = "Test case: {index} => nums{0}, target={1} expect={2}")
+    @ParameterizedTest(name = "Test case: {index} => nums={0}, target={1} expect={2}")
     @MethodSource("generateTestCases")
     void binarySearchTest(int[] nums, int target,int expected){
         assertEquals(expected, binarySearch.binarySearch(nums, target));
     }
 
 
-    @ParameterizedTest(name = "Test case: {index} => nums{0}, target={1} expect={2}")
+    @ParameterizedTest(name = "Test case: {index} => nums={0}, target={1} expect={2}")
     @MethodSource("generateTestCases")
     void binarySearchRecursiveTest(int[] nums, int target,int expected){
         assertEquals(expected, binarySearch.binarySearchRecursive(nums, target));
