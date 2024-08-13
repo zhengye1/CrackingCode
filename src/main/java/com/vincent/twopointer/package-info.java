@@ -6,6 +6,8 @@
  *  - Sort Colors (LeetCode 75) <br>
  *  - Reverse the world in String (LeetCode 151) <br>
  *  - VaLid word abbreviation (LeetCode 408) <br>
- *  - Valid Palindrome II (LeetCode 680)
+ *  - Valid Palindrome II (LeetCode 680) <br>
+ *  - Container with most water(LeetCode 11)
+ *  - Trap Water (LeetCode 42)
  */
 package com.vincent.twopointer;
