@@ -12,17 +12,11 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MaximumSubarrayTest {
-    static int[][] input = {
-            {1, 2, 3, 4, 5},
-            {-2, 1, -3, 4, -1, 2, 1, -5, 4},
-            {-1, -2, -3, -4},
-            {5, -2, 3, 4, -1, 6, -2},
-            {0, -3, 1, 1, -2, 2, 3}
-    };
+    static int[][] input =
+        {{1, 2, 3, 4, 5}, {-2, 1, -3, 4, -1, 2, 1, -5, 4}, {-1, -2, -3, -4}, {5, -2, 3, 4, -1, 6, -2},
+            {0, -3, 1, 1, -2, 2, 3}};
 
-    static int[] expected = {
-            15, 6, -1, 15, 5
-    };
+    static int[] expected = {15, 6, -1, 15, 5};
 
     static Stream<Arguments> generateTestCases() {
         List<Arguments> testCases = new ArrayList<>();
@@ -31,7 +25,9 @@ public class MaximumSubarrayTest {
         }
         return testCases.stream();
     }
+
     MaximumSubarray maximumSubarray = new MaximumSubarray();
+
     @ParameterizedTest(name = "Test case: {index} => nums={0},expected={1}")
     @MethodSource("generateTestCases")
     void maximumSubarrayTest(int[] nums, int expected) {
