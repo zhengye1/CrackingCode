@@ -8,7 +8,7 @@ import com.vincent.util.LinkedListNode;
  */
 public class RemoveNthLastNode {
     public LinkedListNode removeNthLastNode(LinkedListNode head, int n){
-        assert head != null;
+        if (head == null) return null;
         LinkedListNode left = head;
         LinkedListNode right = head;
 

@@ -1,4 +1,4 @@
-package com.vincent.prefixsum;
+package com.vincent.arrays;
 
 import java.util.HashMap;
 import java.util.Map;

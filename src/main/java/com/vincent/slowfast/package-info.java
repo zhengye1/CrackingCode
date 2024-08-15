@@ -2,6 +2,7 @@
  * This package will contain all the question involving slow and faster such as <br>
  *  - Happy Number(Leetcode 202) <br>
  *  - Linked List cycle (Leetcode 141) <br>
+ *  - Linked List cycle II (Leetcode 142) <br>
  *  - Middle of linked list (LeetCode 876) <br>
  *  - Circular Array loop (LeetCode 457) <br>
  *  - Find the duplicate number (LeetCode 287) <br>

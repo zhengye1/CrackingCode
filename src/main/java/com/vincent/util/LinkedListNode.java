@@ -22,4 +22,15 @@ public class LinkedListNode {
     public int hashCode() {
         return Objects.hash(data, next);
     }
+
+//    @Override
+//    public String toString() {
+//        LinkedListNode copy = this;
+//        StringBuilder s = new StringBuilder("" + this.data);
+//        while (copy.next != null) {
+//            s.append("->").append(copy.next.data);
+//            copy = copy.next;
+//        }
+//        return s.toString();
+//    }
 }

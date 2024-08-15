@@ -1,17 +1,25 @@
 package com.vincent.slowfast;
 
-import com.vincent.util.LinkedListNode;
 import com.vincent.util.LinkedList;
+import com.vincent.util.LinkedListNode;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CycleDetectionTest {
-    int[][] input = { { 2, 4, 6, 8, 10, 12 }, { 1, 3, 5, 7, 9, 11 },
+    static int[][] input = { { 2, 4, 6, 8, 10, 12 }, { 1, 3, 5, 7, 9, 11 },
         { 0, 1, 2, 3, 4, 6 }, { 3, 4, 7, 9, 11, 17 }, { 5, 1, 4, 9, 2, 3 }, {}, {1} };
-    int[] pos = { 0, -1, 1, -1, 2, -1, -1 };
+    static int[] pos = { 0, -1, 1, -1, 2, -1, -1 };
+    static boolean[] expected = {
+        true, false, true, false, true, false
+    };
 
     CycleDetection cycleDetection = new CycleDetection();
     LinkedList<Integer> linkedList;
@@ -19,81 +27,29 @@ public class CycleDetectionTest {
     void setup(){
         linkedList = new LinkedList<>();
     }
-    @Test
-    void testCase1(){
-        int testCase = 0;
-        linkedList.createLinkedList(input[testCase]);
-        if (pos[testCase] != -1) {
-            int length = linkedList.getLength(linkedList.head);
-            LinkedListNode lastNode = linkedList.getNode(linkedList.head, length - 1);
-            lastNode.next = linkedList.getNode(linkedList.head, pos[testCase]);
+
+    static Stream<Arguments> generateTestCases() {
+        List<Arguments> testCases = new ArrayList<>();
+        LinkedList<Integer> linkedList;
+        for (int i = 0; i < expected.length; i++) {
+            // create the input linked list
+            linkedList = new LinkedList<>();
+            linkedList.createLinkedList(input[i]);
+            if (pos[i] != -1){
+                // create the cycle
+                int length = linkedList.getLength(linkedList.head);
+                LinkedListNode lastNode = linkedList.getNode(linkedList.head, length - 1);
+                lastNode.next = linkedList.getNode(linkedList.head, pos[i]);
+            }
+            testCases.add(Arguments.of(linkedList.head, expected[i]));
         }
-        assertTrue(cycleDetection.detectCycle(linkedList.head));
+        return testCases.stream();
     }
-    @Test
-    void testCase2(){
-        int testCase = 1;
-        linkedList.createLinkedList(input[testCase]);
-        if (pos[testCase] != -1) {
-            int length = linkedList.getLength(linkedList.head);
-            LinkedListNode lastNode = linkedList.getNode(linkedList.head, length - 1);
-            lastNode.next = linkedList.getNode(linkedList.head, pos[testCase]);
-        }
-        assertFalse(cycleDetection.detectCycle(linkedList.head));
+
+    @ParameterizedTest(name = "Test case: {index} => listA={0} expected={1}")
+    @MethodSource("generateTestCases")
+    void cycleDectionTest(LinkedListNode head, boolean expected) {
+        assertEquals(expected, cycleDetection.detectCycle(head));
     }
-    @Test
-    void testCase3(){
-        int testCase = 2;
-        linkedList.createLinkedList(input[testCase]);
-        if (pos[testCase] != -1) {
-            int length = linkedList.getLength(linkedList.head);
-            LinkedListNode lastNode = linkedList.getNode(linkedList.head, length - 1);
-            lastNode.next = linkedList.getNode(linkedList.head, pos[testCase]);
-        }
-        assertTrue(cycleDetection.detectCycle(linkedList.head));
-    }
-    @Test
-    void testCase4(){
-        int testCase = 3;
-        linkedList.createLinkedList(input[testCase]);
-        if (pos[testCase] != -1) {
-            int length = linkedList.getLength(linkedList.head);
-            LinkedListNode lastNode = linkedList.getNode(linkedList.head, length - 1);
-            lastNode.next = linkedList.getNode(linkedList.head, pos[testCase]);
-        }
-        assertFalse(cycleDetection.detectCycle(linkedList.head));
-    }
-    @Test
-    void testCase5(){
-        int testCase = 4;
-        linkedList.createLinkedList(input[testCase]);
-        if (pos[testCase] != -1) {
-            int length = linkedList.getLength(linkedList.head);
-            LinkedListNode lastNode = linkedList.getNode(linkedList.head, length - 1);
-            lastNode.next = linkedList.getNode(linkedList.head, pos[testCase]);
-        }
-        assertTrue(cycleDetection.detectCycle(linkedList.head));
-    }
-    @Test
-    void testCase6(){
-        int testCase = 5;
-        linkedList.createLinkedList(input[testCase]);
-        if (pos[testCase] != -1) {
-            int length = linkedList.getLength(linkedList.head);
-            LinkedListNode lastNode = linkedList.getNode(linkedList.head, length - 1);
-            lastNode.next = linkedList.getNode(linkedList.head, pos[testCase]);
-        }
-        assertFalse(cycleDetection.detectCycle(linkedList.head));
-    }
-    @Test
-    void testCase7(){
-        int testCase = 6;
-        linkedList.createLinkedList(input[testCase]);
-        if (pos[testCase] != -1) {
-            int length = linkedList.getLength(linkedList.head);
-            LinkedListNode lastNode = linkedList.getNode(linkedList.head, length - 1);
-            lastNode.next = linkedList.getNode(linkedList.head, pos[testCase]);
-        }
-        assertFalse(cycleDetection.detectCycle(linkedList.head));
-    }
+
 }
