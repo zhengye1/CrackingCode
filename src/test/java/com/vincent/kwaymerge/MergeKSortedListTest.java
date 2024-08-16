@@ -48,11 +48,38 @@ public class MergeKSortedListTest {
         return testCases.stream();
     }
 
+
+    static Stream<Arguments> generateTestCasesArrayVersion() {
+        List<Arguments> testCases = new ArrayList<>();
+        LinkedList<Integer> inputLinkedList;
+        LinkedList<LinkedListNode> expectedLinkedList;
+        LinkedListNode[] inputList;
+        for (int i = 0; i < expected.size(); i++) {
+            inputList = new LinkedListNode[input.get(i).size()];
+            for (int j = 0; j < input.get(i).size(); j++) {
+                inputLinkedList = new LinkedList<>();
+                inputLinkedList.createLinkedList(input.get(i).get(j));
+                inputList[j] = inputLinkedList.head;
+            }
+
+            expectedLinkedList = new LinkedList<>();
+            expectedLinkedList.createLinkedList(expected.get(i));
+            testCases.add(Arguments.of(inputList, expectedLinkedList.head));
+        }
+        return testCases.stream();
+    }
+
     MergeKSortedList mergeKSortedList = new MergeKSortedList();
 
     @ParameterizedTest(name = "Test case: {index} => lists={0}, expected={1}")
     @MethodSource("generateTestCases")
     void testMergeKSortedList(List<LinkedListNode> lists, LinkedListNode expected) {
+        assertEquals(expected, mergeKSortedList.mergeKLists(lists));
+    }
+
+    @ParameterizedTest(name = "Test case: {index} => lists={0}, expected={1}")
+    @MethodSource("generateTestCasesArrayVersion")
+    void testMergeKSortedList(LinkedListNode[] lists, LinkedListNode expected) {
         assertEquals(expected, mergeKSortedList.mergeKLists(lists));
     }
 }

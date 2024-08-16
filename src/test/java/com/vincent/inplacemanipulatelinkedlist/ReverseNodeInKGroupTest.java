@@ -48,14 +48,6 @@ public class ReverseNodeInKGroupTest {
     @ParameterizedTest(name = "Test case: {index} => head={0}, k={1} expected={2}")
     @MethodSource("generateTestCases")
     void testReverseNodeInKGroup(LinkedListNode head, int k, LinkedListNode expected) {
-//        LinkedListNode actual = reverseNodesInKGroup.reverseKGroups(head, k);
-//        LinkedList.printListWithForwardArrow(actual);
-//        while (actual != null && expected != null) {
-//            assertEquals(expected.data, actual.data);
-//            actual = actual.next;
-//            expected = expected.next;
-//        }
-//        assertTrue(expected == null && actual == null);
         assertEquals(expected, reverseNodesInKGroup.reverseKGroups(head, k));
     }
 }

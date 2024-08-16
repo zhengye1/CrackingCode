@@ -48,7 +48,7 @@ public class CycleDetectionTest {
 
     @ParameterizedTest(name = "Test case: {index} => listA={0} expected={1}")
     @MethodSource("generateTestCases")
-    void cycleDectionTest(LinkedListNode head, boolean expected) {
+    void cycleDetectionTest(LinkedListNode head, boolean expected) {
         assertEquals(expected, cycleDetection.detectCycle(head));
     }
 

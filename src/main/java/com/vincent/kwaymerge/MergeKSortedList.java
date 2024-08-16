@@ -1,10 +1,7 @@
 package com.vincent.kwaymerge;
 
-import com.vincent.util.LinkedList;
 import com.vincent.util.LinkedListNode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -49,5 +46,18 @@ public class MergeKSortedList {
         } else {
             return null;
         }
+    }
+
+    public LinkedListNode mergeKLists(LinkedListNode[] lists){
+        if (lists == null || lists.length == 0) return null;
+        return mergeK(lists, 0, lists.length - 1);
+    }
+
+    public LinkedListNode mergeK(LinkedListNode[] list, int l, int r){
+        if (l == r) return list[l];
+        int mid = l + ((r  - l) >> 1);
+        LinkedListNode l1 = mergeK(list, l, mid);
+        LinkedListNode l2 = mergeK(list, mid + 1, r);
+        return merge2Lists(l1, l2);
     }
 }
