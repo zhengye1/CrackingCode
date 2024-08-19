@@ -1,13 +1,15 @@
 com.vincent.array
 com.vincent.arrays
 com.vincent.cyclicsort
-com.vincent.inplacemanipulatelinkedlist
 com.vincent.kwaymerge
+com.vincent.linkedlist
+com.vincent.linkedlist.inplacemanipulation
 com.vincent.matrix
 com.vincent.mergeinterval
 com.vincent.modifybinarysearch
 com.vincent.slidewindow
 com.vincent.slowfast
+com.vincent.sort
 com.vincent.subset
 com.vincent.topkelement
 com.vincent.twoheaps
