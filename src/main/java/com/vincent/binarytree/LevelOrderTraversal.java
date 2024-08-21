@@ -14,7 +14,7 @@ public class LevelOrderTraversal {
     public List<List<Integer>> levelOrderIterative(TreeNode<Integer> root) {
         if (root == null)
             return new ArrayList<>();
-        List<List<Integer>> result = new ArrayList<>();
+        List<List<Integer>> iterativeResult = new ArrayList<>();
         Deque<TreeNode<Integer>> currentQueue = new LinkedList<>();
         currentQueue.offer(root);
         while (!currentQueue.isEmpty()) {
@@ -30,19 +30,20 @@ public class LevelOrderTraversal {
                     currentQueue.offer(node.right);
                 }
             }
-            result.add(levelNodes);
+            iterativeResult.add(levelNodes);
         }
-        return result;
+        return iterativeResult;
     }
 
-    List<List<Integer>> result = new ArrayList<>();
+
 
     public List<List<Integer>> levelOrderRecursion(TreeNode<Integer> root) {
-        level(root, 0);
-        return result;
+        List<List<Integer>> recursionResult = new ArrayList<>();
+        level(root, 0, recursionResult);
+        return recursionResult;
     }
 
-    private void level(TreeNode<Integer> root, int level) {
+    private void level(TreeNode<Integer> root, int level, List<List<Integer>> result) {
         if (root == null)
             return;
         if (result.size() == level) {
@@ -50,10 +51,10 @@ public class LevelOrderTraversal {
         }
         result.get(level).add(root.data);
         if (root.left != null){
-            level(root.left, level + 1);
+            level(root.left, level + 1, result);
         }
         if (root.right != null){
-            level(root.right, level + 1);
+            level(root.right, level + 1, result);
         }
     }
 }
