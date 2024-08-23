@@ -52,4 +52,21 @@ public class Tree<T> {
         // Return the root of the binary tree
         return root;
     }
+    public TreeNode<T> find(T value) {
+        return findRec(root, value);
+    }
+    public TreeNode<T> findRec(TreeNode<T> root, T value) {
+        if (root == null || root.data.equals(value))
+            return root;
+
+        TreeNode<T> leftResult = findRec(root.left, value);
+        if (leftResult != null)
+            return leftResult;
+
+        TreeNode<T> rightResult = findRec(root.right, value);
+        if (rightResult != null)
+            return rightResult;
+
+        return null;
+    }
 }
