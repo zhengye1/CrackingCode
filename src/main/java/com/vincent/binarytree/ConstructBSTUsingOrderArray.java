@@ -31,25 +31,20 @@ public class ConstructBSTUsingOrderArray {
     }
 
     public TreeNode<Integer> buildTreePostOrderInOrder(int[] postorder, int[] inorder) {
-        postIndex = postorder.length - 1;
-        return buildTreePostOrderInOrderHelper(postorder, inorder, 0, inorder.length - 1);
+        inIndex = postIndex = postorder.length - 1;
+        return buildTreePostOrderInOrderHelper(postorder, inorder, Integer.MAX_VALUE);
     }
 
-    private TreeNode<Integer> buildTreePostOrderInOrderHelper(int[] postorder, int[] inorder, int inStart, int inEnd) {
-        if (inStart > inEnd) return null;
-        int rootVal = postorder[postIndex--];
-        TreeNode<Integer> root = new TreeNode<>(rootVal);
-        // find the proper index in the inorder
-        int inIndex = 0;
-        for (int i = inStart; i <= inEnd; i++) {
-            if (inorder[i] == rootVal) {
-                inIndex = i;
-                break;
-            }
+    private TreeNode<Integer> buildTreePostOrderInOrderHelper(int[] postorder, int[] inorder,int stop) {
+        if (postIndex < 0) return null;
+        if (inorder[inIndex] == stop){
+            inIndex--;
+            return null;
         }
 
-        root.right = buildTreePostOrderInOrderHelper(postorder, inorder, inIndex + 1, inEnd);
-        root.left = buildTreePostOrderInOrderHelper(postorder, inorder, inStart, inIndex - 1);
+        TreeNode<Integer> root = new TreeNode<>(postorder[postIndex--]);
+        root.right = buildTreePostOrderInOrderHelper(postorder, inorder, root.data);
+        root.left = buildTreePostOrderInOrderHelper(postorder, inorder, stop);
         return root;
     }
 
