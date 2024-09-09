@@ -1,4 +1,4 @@
-package com.vincent.twopointer;
+package com.vincent.arrays;
 
 /**
  * LeetCode 283 - Easy

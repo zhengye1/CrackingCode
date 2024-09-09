@@ -1,5 +1,6 @@
-package com.vincent.twopointer;
+package com.vincent.array;
 
+import com.vincent.arrays.MoveZero;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
