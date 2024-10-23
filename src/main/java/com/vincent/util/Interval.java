@@ -1,5 +1,8 @@
 package com.vincent.util;
 
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode
 public class Interval {
     public int start;
     public int end;

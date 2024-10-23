@@ -70,7 +70,7 @@ public class EmployeeFreeTimeTest {
     @ParameterizedTest(name = "Test case: {index} => schedule={0}, expected={1}")
     @MethodSource("generateTestCases")
     void testEmployeeFreeTime(List<List<Interval>> schedule, List<Interval> expected) {
-        assertEquals(expected, employeeFreeTime.employeeFreeTime(schedule));
+        assertIterableEquals(expected, employeeFreeTime.employeeFreeTime(schedule));
     }
 
 
