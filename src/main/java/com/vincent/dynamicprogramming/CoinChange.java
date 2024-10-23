@@ -43,9 +43,6 @@ public class CoinChange {
         }
         return dp[amount] > amount ? -1 : dp[amount];
     }
-
-    public static void main(String[] args){
-        new CoinChange().coinChange(new int[]{6, 7, 8}, 27);
-    }
+    
 
 }
